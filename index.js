@@ -29,7 +29,7 @@ client.on("messageCreate", async message => {
             message.channel.messages.fetch({ limit: 100 }).then(async messages => { // Fetches the last 100 messages of the channel were the command was given
                 var filteredMsg = messages.filter(m => m.content.toLowerCase().includes(link) && m.id != message.id);
                 if (filteredMsg.size > 0) {
-                    message.channel.send("Scroll up stupid. This link was already posted in this channel.");
+                    message.channel.send("Scroll up. This link was already posted in this channel.");
                 }
                 else {
                     var promiseList = [];
@@ -47,7 +47,7 @@ client.on("messageCreate", async message => {
                         await Promise.all(promiseList);
                     }
                     if (listOfChannels.length > 0) {
-                        var messageToPost = "Hey dumbass. This link was already posted in these channel(s): ";
+                        var messageToPost = "This link was already posted in these channel(s): ";
                         let i = 0;
                         listOfChannels.forEach(channelId => {
                             if (i == 0) {
